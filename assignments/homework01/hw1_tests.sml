@@ -1,4 +1,3 @@
-
 (* Load Homework Assignments Source *)
 use "hw1.sml";
 
