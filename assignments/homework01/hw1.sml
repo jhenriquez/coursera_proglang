@@ -12,10 +12,10 @@ Also, it assumes that if a smaller digit is found during the comparison of dates
 *)
 
 fun is_older(d1 : int * int * int, d2 : int * int * int) =
-	if (#1 d1 < #1 d2) (* Year *)
-	orelse (#2 d1 < #2 d2) (* Month *)
+	if (#1 d1 < #1 d2)
+	orelse (#2 d1 < #2 d2)
 	then true
-	else (#3 d1 < #3 d2) andalso not (#2 d1 > #2 d2) (* Day *)
+	else (#3 d1 < #3 d2) andalso not (#2 d1 > #2 d2)
 
 
 (*
@@ -29,8 +29,8 @@ fun number_in_month (dates : (int*int*int) list, month : int) =
 	if null dates
 	then 0
 	else 
-		if (#2 (hd dates)) <> month
-		then 0
+		if not ((#2 (hd dates)) = month)
+		then 0 + number_in_month (tl(dates), month)
 		else 1 + number_in_month (tl(dates), month)
 
 (*
@@ -42,6 +42,6 @@ Assume the list of months has no number repeated. Hint: Use your answer to the p
 *)
 
 fun number_in_months (dates : (int*int*int) list, months : int list) =
-	if not (null months)
-	then number_in_month (dates, (hd months)) + number_in_months (dates, (tl months))
-	else 0
+	if null months
+	then 0
+	else number_in_month (dates, hd(months)) + number_in_months (dates, tl(months))

@@ -17,7 +17,12 @@ val number_in_month_returns_TWO = number_in_month([(1,2,5),(1,2,6),(1,5,5)], 2) 
 val number_in_month_returns_ONE = number_in_month([(1,2,5),(1,4,6),(1,5,5)], 2) = 1;
 val number_in_month_returns_FOUR = number_in_month([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], 2) = 4;
 val number_in_month_returns_ZERO_when_list_empty = number_in_month ([], 2) = 0;
+val number_in_month_works_when_date_in_the_middle = number_in_month ([(1,1,5),(1,4,6),(1,2,5)], 2) = 1;
 
-val number_in_months_returns_FOUR = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [2,5]) = 4;
+(* Question 3 - number_in_months *)
+
 val number_in_months_returns_ZERO_when_not_found = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [1,7]) = 0;
-val number_in_months_returns_ZERO_when_not_found = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [1,5]);
+val number_in_months_returns_FOUR = number_in_months ([(1,2,5),(1,3,6),(2,5,5),(2,2,7),(1,5,5)], [2,5]) = 4;
+val number_in_months_returns_ONE = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [1,5,0]) = 1;
+val number_in_months_returns_ZERO_when_empty_list = number_in_months ([(1,2,5),(1,2,6)], []) = 0;
+val number_in_months_returns_COUNT_when_single_element = number_in_months ([(1,2,5)], [2,2]) = 2;
