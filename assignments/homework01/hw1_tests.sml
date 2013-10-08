@@ -26,3 +26,10 @@ val number_in_months_returns_FOUR = number_in_months ([(1,2,5),(1,3,6),(2,5,5),(
 val number_in_months_returns_ONE = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [1,5,0]) = 1;
 val number_in_months_returns_ZERO_when_empty_list = number_in_months ([(1,2,5),(1,2,6)], []) = 0;
 val number_in_months_returns_COUNT_when_single_element = number_in_months ([(1,2,5)], [2,2]) = 2;
+
+(* Question 4 - dates_in_month *)
+
+val dates_in_month_find_date_on_list_begenning = dates_in_month ([(1,2,5),(1,3,5)],2) = [(1,2,5)];
+val dates_in_month_find_date_on_list_end = dates_in_month ([(1,2,5),(1,3,5)],3) = [(1,3,5)];
+val dates_in_month_return_empty_list_when_not_found = dates_in_month ([(1,5,5),(1,3,5)],2) = [];
+val dates_in_month_dates_are_returned_in_order = dates_in_month ([(1,2,5),(1,7,6),(2,2,5),(2,4,7),(1,2,5)], 2) = [(1,2,5),(2,2,5),(1,2,5)];
