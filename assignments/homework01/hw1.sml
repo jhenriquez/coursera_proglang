@@ -62,3 +62,18 @@ fun dates_in_month (dates : (int*int*int) list, month : int) =
 		if not ((#2 (hd dates)) = month)
 		then dates_in_month (tl(dates), month)
 		else (hd dates)::dates_in_month (tl(dates), month)
+
+(*
+Problem 05
+
+Write a function dates_in_months that takes a list of dates and a list of months (i.e., an int list)
+and returns a list holding the dates from the argument list of dates that are in any of the months in
+the list of months.
+
+This function assumes the list of months has no number repeated.
+*)
+
+fun dates_in_months (dates : (int*int*int) list, months : int list) =
+	if null months
+	then []
+	else dates_in_month(dates, hd(months))@dates_in_months (dates, tl(months))

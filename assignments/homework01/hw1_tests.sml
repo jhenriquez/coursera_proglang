@@ -33,3 +33,10 @@ val dates_in_month_find_date_on_list_begenning = dates_in_month ([(1,2,5),(1,3,5
 val dates_in_month_find_date_on_list_end = dates_in_month ([(1,2,5),(1,3,5)],3) = [(1,3,5)];
 val dates_in_month_return_empty_list_when_not_found = dates_in_month ([(1,5,5),(1,3,5)],2) = [];
 val dates_in_month_dates_are_returned_in_order = dates_in_month ([(1,2,5),(1,7,6),(2,2,5),(2,4,7),(1,2,5)], 2) = [(1,2,5),(2,2,5),(1,2,5)];
+
+(* Question 5 - dates_in_months *)
+
+val dates_in_months_find_date_on_list_begenning = dates_in_months ([(1,2,5),(1,3,5)],[2,3]) = [(1,2,5),(1,3,5)];
+val dates_in_months_works_with_single_item = dates_in_months ([(1,2,5),(1,3,5)],[3]) = [(1,3,5)];
+val dates_in_months_return_empty_list_when_not_found = dates_in_months ([(1,5,5),(1,3,5)],[2,7,6]) = [];
+val dates_in_months_dates_are_returned_in_order = dates_in_months ([(1,2,5),(1,7,6),(2,2,5),(2,4,7),(1,2,5)], [2]) = [(1,2,5),(2,2,5),(1,2,5)];
