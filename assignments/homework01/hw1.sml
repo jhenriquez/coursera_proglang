@@ -42,6 +42,6 @@ Assume the list of months has no number repeated. Hint: Use your answer to the p
 *)
 
 fun number_in_months (dates : (int*int*int) list, months : int list) =
-	if null months
-	then 0
-	else number_in_month (dates, (hd months)) + number_in_months (dates, (tl months))
+	if not (null months)
+	then number_in_month (dates, (hd months)) + number_in_months (dates, (tl months))
+	else 0
