@@ -11,7 +11,7 @@ This solution evaluates the date by parts on the order they were set on tuple: #
 Also, it assumes that if a smaller digit is found during the comparison of dates, it should evaluate no further.
 *)
 
-fun is_older(d1 : int * int * int, d2 : int * int * int) =
+fun is_older(d1 : int * int * int, d2 : int * int * int) : bool =
 	if (#1 d1 < #1 d2)
 	orelse (#2 d1 < #2 d2)
 	then true
@@ -25,13 +25,12 @@ Write a function number_in_month that takes a list of dates and a month (i.e., a
 how many dates in the list are in the given month.
 *)
 
-fun number_in_month (dates : (int*int*int) list, month : int) =
+fun number_in_month (dates : (int*int*int) list, month : int) : int =
 	if null dates
 	then 0
-	else 
-		if not ((#2 (hd dates)) = month)
-		then 0 + number_in_month (tl(dates), month)
-		else 1 + number_in_month (tl(dates), month)
+	else if not ((#2 (hd dates)) = month)
+	then 0 + number_in_month (tl(dates), month)
+	else 1 + number_in_month (tl(dates), month)
 
 (*
 Problem 03
@@ -41,7 +40,7 @@ and returns the number of dates in the list of dates that are in any of the mont
 Assume the list of months has no number repeated. Hint: Use your answer to the previous problem.
 *)
 
-fun number_in_months (dates : (int*int*int) list, months : int list) =
+fun number_in_months (dates : (int*int*int) list, months : int list) : int =
 	if null months
 	then 0
 	else number_in_month (dates, hd(months)) + number_in_months (dates, tl(months))
@@ -55,13 +54,12 @@ list holding the dates from the argument list of dates that are in the month. Th
 contain dates in the order they were originally given.
 *)
 
-fun dates_in_month (dates : (int*int*int) list, month : int) =
+fun dates_in_month (dates : (int*int*int) list, month : int) : (int*int*int) list  =
 	if null dates
 	then []
-	else 
-		if not ((#2 (hd dates)) = month)
-		then dates_in_month (tl(dates), month)
-		else (hd dates)::dates_in_month (tl(dates), month)
+	else if not ((#2 (hd dates)) = month)
+	then dates_in_month (tl(dates), month)
+	else (hd dates)::dates_in_month (tl(dates), month)
 
 (*
 Problem 05
@@ -73,7 +71,7 @@ the list of months.
 This function assumes the list of months has no number repeated.
 *)
 
-fun dates_in_months (dates : (int*int*int) list, months : int list) =
+fun dates_in_months (dates : (int*int*int) list, months : int list) : (int*int*int) list =
 	if null months
 	then []
 	else dates_in_month(dates, hd(months))@dates_in_months (dates, tl(months))
@@ -88,7 +86,6 @@ where the head of the list is 1st.
 fun get_nth (strings : string list, index : int) : string =
 	if null (strings)
 	then ""
-	else 
-		if index = 1
-		then hd (strings)
-		else get_nth (tl(strings), index - 1)
+	else if index = 1
+	then hd (strings)
+	else get_nth (tl(strings), index - 1)
