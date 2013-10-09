@@ -40,3 +40,13 @@ val dates_in_months_find_date_on_list_begenning = dates_in_months ([(1,2,5),(1,3
 val dates_in_months_works_with_single_item = dates_in_months ([(1,2,5),(1,3,5)],[3]) = [(1,3,5)];
 val dates_in_months_return_empty_list_when_not_found = dates_in_months ([(1,5,5),(1,3,5)],[2,7,6]) = [];
 val dates_in_months_dates_are_returned_in_order = dates_in_months ([(1,2,5),(1,7,6),(2,2,5),(2,4,7),(1,2,5)], [2]) = [(1,2,5),(2,2,5),(1,2,5)];
+
+(* Question 6 - get_nth *)
+
+val get_nth_when_list_empty_returns_empty_string = get_nth ([],5) = "";
+val get_nth_when_list_smaller_than_index_return_empty_string = get_nth (["One","Two","Three"],4) = "";
+val get_nth_can_return_middle_elements_second = get_nth (["One","Two","Three"],2) = "Two";
+val get_nth_can_return_last_element = get_nth (["One","Two","Three"],3) = "Three";
+val get_nth_can_return_first_element = get_nth (["One","Two","Three"],1) = "One";
+val get_nth_returns_empty_str_when_index_zero_on_empty_list = get_nth ([],0) = "";
+val get_nth_returns_empty_str_when_index_zero_on_not_empty_list = get_nth (["One","Two","Three"],0) = "";
