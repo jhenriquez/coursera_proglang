@@ -71,7 +71,7 @@ the list of months.
 This function assumes the list of months has no number repeated.
 *)
 
-fun dates_in_months (dates : (int*int*int) list, months : int list) : (int*int*int) list =
+fun dates_in_months (dates : (int*int*int) list, months : int list)  = (* What's the syntax for the output? *)
 	if null months
 	then []
 	else dates_in_month(dates, hd(months))@dates_in_months (dates, tl(months))
@@ -89,3 +89,15 @@ fun get_nth (strings : string list, index : int) : string =
 	else if index = 1
 	then hd (strings)
 	else get_nth (tl(strings), index - 1)
+
+(* Problem 7 *)
+
+fun date_to_string (date : int * int * int) =
+	let
+	  val months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	  val month = get_nth (months, (#2 date))^" "
+	  val day = Int.toString (#3 date)^", "
+	  val year = Int.toString((#1 date))
+	in
+	  month^day^year
+	end

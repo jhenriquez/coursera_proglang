@@ -50,3 +50,18 @@ val get_nth_can_return_last_element = get_nth (["One","Two","Three"],3) = "Three
 val get_nth_can_return_first_element = get_nth (["One","Two","Three"],1) = "One";
 val get_nth_returns_empty_str_when_index_zero_on_empty_list = get_nth ([],0) = "";
 val get_nth_returns_empty_str_when_index_zero_on_not_empty_list = get_nth (["One","Two","Three"],0) = "";
+
+(* Problem 07 - date_to_string *)
+
+fun assert (expression : bool, description : string) : string =
+	let
+	  val status = if expression then "Win!" else "Fail!"
+	  val out = "Status: "
+	in
+	  out^status^", "^description
+	end
+
+val date_to_string_returns_October_11_2013 = date_to_string (2013,10,11) = "October 11, 2013";
+val date_to_string_returns_January_1_1 = date_to_string (2013,10,11) = "January 1, 1";
+
+assert ((date_to_string (2013,10,11) = "October 11, 2013"), "Should Return: October 11, 2013");
