@@ -62,6 +62,6 @@ fun assert (expression : bool, description : string) : string =
 	end
 
 val date_to_string_returns_October_11_2013 = date_to_string (2013,10,11) = "October 11, 2013";
-val date_to_string_returns_January_1_1 = date_to_string (2013,10,11) = "January 1, 1";
+val date_to_string_returns_January_1_1 = date_to_string (1,1,1) = "January 1, 1";
 
 assert ((date_to_string (2013,10,11) = "October 11, 2013"), "Should Return: October 11, 2013");
