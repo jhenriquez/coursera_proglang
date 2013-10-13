@@ -133,3 +133,21 @@ fun month_range (day1 : int, day2 : int) : (int list) =
 	if day1 > day2
 	then []
 	else what_month (day1)::month_range (day1 + 1, day2)
+
+(*
+Problem 11
+
+*)
+
+fun oldest (dates : (int*int*int) list) : (int*int*int) option =
+    if null dates
+    then NONE
+    else if null (tl dates)
+    then SOME (hd dates)
+    else
+	let val tl_ans = oldest(tl dates) 
+	in
+	    if is_older(hd dates, valOf tl_ans)
+	    then SOME (hd dates)
+	    else tl_ans
+	end

@@ -79,3 +79,10 @@ val month_range_test1 = month_range (28,32) = [1,1,1,1,2];
 val month_range_test2 = month_range (29,32) = [1,1,1,2];
 val month_range_test2 = month_range (32,31) = [];
 val month_range_test2 = month_range (31,31) = [1];
+
+(* Problem 11 - oldest *)
+
+val oldest_test1 = oldest ([]) = NONE;
+val oldest_test2 = oldest ([(2013,11,27),(2013,11,26), (2013,11,25)]) = SOME (2013,11,25);
+val oldest_test3 = oldest ([(2013,11,25),(2013,11,26), (2013,11,27)]) = SOME (2013,11,25);
+val oldest_test3 = oldest ([(2013,11,26),(2013,11,25), (2013,11,27)]) = SOME (2013,11,25);
