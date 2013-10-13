@@ -28,9 +28,9 @@ how many dates in the list are in the given month.
 fun number_in_month (dates : (int*int*int) list, month : int) : int =
 	if null dates
 	then 0
-	else if not ((#2 (hd dates)) = month)
-	then 0 + number_in_month (tl(dates), month)
-	else 1 + number_in_month (tl(dates), month)
+	else if ((#2 (hd dates)) = month)
+	then 1 + number_in_month (tl(dates), month)
+	else 0 + number_in_month (tl(dates), month)
 
 (*
 Problem 03
@@ -87,17 +87,30 @@ fun get_nth (strings : string list, index : int) : string =
 	if null (strings)
 	then ""
 	else if index = 1
-	then hd (strings)
+	then hd (strings)	
 	else get_nth (tl(strings), index - 1)
 
-(* Problem 7 *)
+(*
+Problem 07
 
-fun date_to_string (date : int * int * int) =
+*)
+
+fun date_to_string (date : int * int * int) : string  =
 	let
 	  val months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-	  val month = get_nth (months, (#2 date))^" "
-	  val day = Int.toString (#3 date)^", "
+	  val month = get_nth (months, (#2 date))
+	  val day = Int.toString (#3 date)
 	  val year = Int.toString((#1 date))
 	in
-	  month^day^year
+	  month^" "^day^", "^year
 	end
+
+(*
+Problem 08
+
+*)
+
+fun number_before_reaching_sum (sum : int, numbers : int list) : int =
+	if null(numbers)
+	then 1
+	else 0
