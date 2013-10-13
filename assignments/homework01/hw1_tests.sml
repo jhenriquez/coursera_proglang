@@ -10,6 +10,7 @@ val is_older_FALSE_when_year_greater = is_older((2,4,3),(1,2,3)) = false;
 val is_older_FALSE_when_month_greater = is_older((1,4,2),(1,2,3)) = false;
 val is_older_FALSE_day_greater = is_older((1,2,4),(1,2,3)) = false;
 val is_older_FALSE_when_all_three_are_equal = is_older((1,2,3),(1,2,3)) = false;
+val is_older_auto_grader = is_older ((5,4,4),(4,5,4)) = false;
 
 (* Problem 02 - number_in_month *)
 

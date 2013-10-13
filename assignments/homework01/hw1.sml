@@ -12,7 +12,9 @@ Also, it assumes that if a smaller digit is found during the comparison of dates
 *)
 
 fun is_older(d1 : int * int * int, d2 : int * int * int) : bool =
-	if (#1 d1 < #1 d2)
+	if (#1 d1) > (#1 d2)
+	then false
+	else if (#1 d1) < (#1 d2)
 	orelse (#2 d1 < #2 d2)
 	then true
 	else (#3 d1 < #3 d2) andalso not (#2 d1 > #2 d2)
