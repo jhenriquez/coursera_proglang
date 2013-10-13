@@ -66,9 +66,16 @@ val number_before_reaching_sum_test3 = number_before_reaching_sum (15, [2, 10, 6
 val number_before_reaching_sum_test4 = number_before_reaching_sum (18, [3, 2, 10, 6, 7]) = 3;
 val number_before_reaching_sum_test5 = number_before_reaching_sum (23, [5, 3, 2, 10, 6, 7]) = 4;
 
-(*Problem 09 - what_month *)
+(* Problem 09 - what_month *)
 
 val what_month_test1 = what_month (1) = 1;
 val what_month_test2 = what_month (2) = 1;
 val what_month_test3 = what_month (365) = 12;
 val what_month_test4 = what_month (364) = 12;
+
+(* Problem 10 - month_range *)
+
+val month_range_test1 = month_range (28,32) = [1,1,1,1,2];
+val month_range_test2 = month_range (29,32) = [1,1,1,2];
+val month_range_test2 = month_range (32,31) = [];
+val month_range_test2 = month_range (31,31) = [1];

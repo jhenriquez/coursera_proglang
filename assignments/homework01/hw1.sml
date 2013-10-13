@@ -71,7 +71,7 @@ the list of months.
 This function assumes the list of months has no number repeated.
 *)
 
-fun dates_in_months (dates : (int*int*int) list, months : int list)  = (* What's the syntax for the output? *)
+fun dates_in_months (dates : (int*int*int) list, months : int list) : ((int*int*int) list)  = (* What's the syntax for the output? *)
 	if null months
 	then []
 	else dates_in_month(dates, hd(months))@dates_in_months (dates, tl(months))
@@ -123,3 +123,13 @@ Problem 09
 
 fun what_month (day : int) : int = 
 	number_before_reaching_sum (day, [31,28,31,30,31,30,31,31,30,31,30,31]) + 1
+
+(*
+Problem 10
+
+*)
+
+fun month_range (day1 : int, day2 : int) : (int list) = 
+	if day1 > day2
+	then []
+	else what_month (day1)::month_range (day1 + 1, day2)
