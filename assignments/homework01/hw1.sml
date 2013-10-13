@@ -112,5 +112,14 @@ Problem 08
 
 fun number_before_reaching_sum (sum : int, numbers : int list) : int =
 	if null(numbers)
-	then 1
-	else 0
+	orelse sum - (hd numbers) <= 0
+	then 0
+	else 1 + number_before_reaching_sum (sum - (hd numbers),(tl numbers))
+
+(*
+Problem 09
+
+*)
+
+fun what_month (day : int) : int = 
+	number_before_reaching_sum (day, [31,28,31,30,31,30,31,31,30,31,30,31]) + 1

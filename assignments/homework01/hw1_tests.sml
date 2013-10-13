@@ -24,7 +24,7 @@ val number_in_month_works_when_date_in_the_middle = number_in_month ([(1,1,5),(1
 val number_in_months_returns_ZERO_when_not_found = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [1,7]) = 0;
 val number_in_months_returns_FOUR = number_in_months ([(1,2,5),(1,3,6),(2,5,5),(2,2,7),(1,5,5)], [2,5]) = 4;
 val number_in_months_returns_ONE = number_in_months ([(1,2,5),(1,2,6),(2,2,5),(2,2,7),(1,5,5)], [1,5,0]) = 1;
-val number_in_months_returns_ZERO_when_empty_list = number_in_month_months ([(1,2,5),(1,2,6)], []) = 0;
+val number_in_months_returns_ZERO_when_empty_list = number_in_months ([(1,2,5),(1,2,6)], []) = 0;
 val number_in_months_returns_COUNT_when_single_element = number_in_months ([(1,2,5)], [2,2]) = 2;
 
 (* Problem 04 - dates_in_month *)
@@ -59,3 +59,16 @@ val date_to_string_returns_January_1_1 = date_to_string (1,1,1) = "January 1, 1"
 (* Problem 08 - number_before_reaching_sum *)
 
 val number_before_reaching_sum_sample_test = number_before_reaching_sum (10,[1,2,3,4,5]) = 3;
+
+val number_before_reaching_sum_test1 = number_before_reaching_sum (3, [6, 7]) = 0;
+val number_before_reaching_sum_test2 = number_before_reaching_sum (13, [10, 6, 7]) = 1;
+val number_before_reaching_sum_test3 = number_before_reaching_sum (15, [2, 10, 6, 7]) = 2;
+val number_before_reaching_sum_test4 = number_before_reaching_sum (18, [3, 2, 10, 6, 7]) = 3;
+val number_before_reaching_sum_test5 = number_before_reaching_sum (23, [5, 3, 2, 10, 6, 7]) = 4;
+
+(*Problem 09 - what_month *)
+
+val what_month_test1 = what_month (1) = 1;
+val what_month_test2 = what_month (2) = 1;
+val what_month_test3 = what_month (365) = 12;
+val what_month_test4 = what_month (364) = 12;
