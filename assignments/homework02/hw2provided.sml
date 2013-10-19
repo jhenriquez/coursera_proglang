@@ -7,11 +7,26 @@ fun same_string(s1 : string, s2 : string) =
     s1 = s2
 
 (* put your solutions for problem 1 here *)
-fun all_except_option (str,[]) = NONE
-		| all_except_option (str, (hd::[])) =
-			if same_string (str, hd)
-			then SOME hd
-			else all_except_option (str, [])
+
+(* compares a list of strings *)
+fun compare ([],[]) = true
+	| compare ((x::xs),(y::ys)) = same_string(x,y) andalso compare(xs,ys)
+	| compare (_,_) = false
+
+fun all_except_option (str : string ,[]) = NONE
+	| all_except_option (str : string,lst) = 
+		let
+		   fun nav ([],acc) =
+			  if compare(acc,lst)
+			  then NONE
+			  else SOME acc
+		     | nav ((h::t),acc) =
+              if same_string(str,h)
+			  then nav (t,acc)
+			  else nav (t,acc @ [h])
+ 		 in
+		   nav (lst,[])
+		 end
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
