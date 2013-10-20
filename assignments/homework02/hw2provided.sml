@@ -28,6 +28,18 @@ fun all_except_option (str : string ,[]) = NONE
 		   nav (lst,[])
 		 end
 
+fun get_substitutions1 ([], s) = []
+		| get_substitutions1 (lsts, s) =
+			let
+				fun nav ([], acc) = acc
+				|	nav (hd::tl, acc) = 
+					case all_except_option (s,hd) of
+						NONE => nav(tl,acc)
+					|	SOME xs => nav(tl, xs @ acc)
+			in
+				nav(lsts, [])
+			end
+
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
 datatype suit = Clubs | Diamonds | Hearts | Spades
