@@ -52,6 +52,8 @@ fun get_substitutions2 ([], s) = []
 				nav(lsts, [])
 			end
 
+(* Problem 1 D *)
+
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
