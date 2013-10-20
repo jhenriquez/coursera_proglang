@@ -8,6 +8,8 @@ fun same_string(s1 : string, s2 : string) =
 
 (* put your solutions for problem 1 here *)
 
+(* Problem 1 A *)
+
 (* compares a list of strings *)
 fun compare ([],[]) = true
 	| compare ((x::xs),(y::ys)) = same_string(x,y) andalso compare(xs,ys)
@@ -28,8 +30,18 @@ fun all_except_option (str : string ,[]) = NONE
 		   nav (lst,[])
 		 end
 
+(* Problem 1 B *)
+
 fun get_substitutions1 ([], s) = []
-		| get_substitutions1 (lsts, s) =
+		| get_substitutions1 (lst::lsts, s) =
+			case all_except_option (s,lst) of
+						NONE => get_substitutions1 (lsts,s)
+					|	SOME xs => xs @ get_substitutions1 (lsts,s)
+
+(* Problem 1 C *)
+
+fun get_substitutions2 ([], s) = []
+		| get_substitutions2 (lsts, s) =
 			let
 				fun nav ([], acc) = acc
 				|	nav (hd::tl, acc) = 
@@ -39,6 +51,7 @@ fun get_substitutions1 ([], s) = []
 			in
 				nav(lsts, [])
 			end
+
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)

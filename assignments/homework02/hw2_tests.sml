@@ -10,4 +10,9 @@ val all_except_option_at_end = all_except_option ("4",["1","2","3","4"]) = SOME 
 (* Problem 02 - B *)
 
 val get_substitutions1_test1 = get_substitutions1([["foo"],["there"]], "foo") = []
-val get_substitutions2_test2 = get_substitutions1([["foo","bar"],["there"]], "foo") = ["bar"]
+val get_substitutions1_test2 = get_substitutions1([["foo","bar"],["there"]], "foo") = ["bar"]
+
+(* Problem 02 - C *)
+
+val get_substitutions2_test1 = get_substitutions2([["foo"],["there"]], "foo") = []
+val get_substitutions2_test2 = get_substitutions2([["foo","bar"],["there"]], "foo") = ["bar"]
