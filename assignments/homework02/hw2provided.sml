@@ -47,7 +47,7 @@ fun get_substitutions2 ([], s) = []
 				|	nav (hd::tl, acc) = 
 					case all_except_option (s,hd) of
 						NONE => nav(tl,acc)
-					|	SOME xs => nav(tl, xs @ acc)
+					|	SOME xs => nav(tl, acc @ xs)
 			in
 				nav(lsts, [])
 			end
@@ -64,7 +64,6 @@ fun similar_names ([] : string list list, r : {first: string, middle: string, la
 				substitute (subs,[{first=first,middle=middle,last=last}])
 			end		
 
-
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
 datatype suit = Clubs | Diamonds | Hearts | Spades
@@ -77,3 +76,12 @@ datatype move = Discard of card | Draw
 exception IllegalMove
 
 (* put your solutions for problem 2 here *)
+
+(* Problem 02 A *)
+
+fun card_color (Clubs,_) = Black
+	| card_color (Spades,_) = Black
+	| card_color (Diamonds,_) = Red
+	| card_color (Hearts,_) = Red
+
+(* Problem 02 B *)
