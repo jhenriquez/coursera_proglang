@@ -11,17 +11,19 @@ fun same_string(s1 : string, s2 : string) =
 (* Problem 1 A *)
 
 fun all_except_option (str ,[]) = NONE
-	| all_except_option (str,lst) = let fun nav ([],acc) =
-			  								if acc = lst
-			  								then NONE
-			  								else SOME acc
-		     							| nav ((h::t),acc) =
-              								if same_string(str,h)
-								  			then nav (t,acc)
-			  								else nav (t,acc @ [h])
- 		 							in
-		   								nav (lst,[])
-		 							end
+	| all_except_option (str,lst) =
+		let 
+			fun nav ([],acc) =
+				if acc = lst
+			 	then NONE
+			  	else SOME acc
+		    | nav ((h::t),acc) =
+              	if same_string(str,h)
+				then nav (t,acc)
+			  	else nav (t,acc @ [h])
+ 		 	in
+		   		nav (lst,[])
+		 	end
 
 (* Problem 1 B *)
 
@@ -47,7 +49,7 @@ fun get_substitutions2 ([], s) = []
 
 (* Problem 1 D *)
 
-fun similar_names ([] : string list list, r : {first: string, middle: string, last: string}) = [r]
+fun similar_names ([], r : {first: string, middle: string, last: string}) = [r]
 	| similar_names (lsts, {first,middle,last} : {first:string, middle:string, last:string}) =
 			let
 				val subs = get_substitutions1 (lsts,first)
@@ -85,8 +87,8 @@ fun card_value (_,Num va) = va
 
 (* Problem 02 C *)
 
-fun remove_card ([] : card list,_,_) = []
-	| remove_card (cs,c : card,ex) = 
+fun remove_card ([],_,_) = []
+	| remove_card (cs,c,ex) = 
 		let
 			fun remover ([],acc) =
 				if cs = acc
@@ -99,3 +101,14 @@ fun remove_card ([] : card list,_,_) = []
 		in
 			remover (cs,[])
 		end
+
+(* Problem 02 D *)
+
+fun all_same_color ([]) = true
+	| all_same_color (_::[]) = true
+	| all_same_color (first::second::[]) = 
+		card_color (first) = card_color (second)
+	| all_same_color (first::second::third::tail) = 
+		card_color (first) = card_color (second)
+		andalso card_color (first) = card_color (third)
+		andalso all_same_color (tail)

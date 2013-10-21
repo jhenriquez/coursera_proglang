@@ -46,8 +46,18 @@ val card_value_test3 = card_value((Clubs, Jack)) = 10
 val card_value_test4 = card_value((Clubs, Queen)) = 10
 val card_value_test5 = card_value((Clubs, King)) = 10
 
-(* Problem 03 C *)
+(* Problem 02 C *)
 
 val remove_card_test1 = remove_card([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
 val remove_card_test2 = remove_card([(Hearts, Ace),(Hearts, Ace)], (Hearts, Ace), IllegalMove) = [(Hearts, Ace)]
 val remove_card_test3 = remove_card([(Hearts, Ace),(Hearts, Ace), (Clubs,Num 2)], (Hearts, Ace), IllegalMove) = [(Hearts, Ace),(Clubs,Num 2)]
+
+(* Problem 02 D *)
+
+val all_same_color_black = all_same_color([(Hearts, Ace), (Hearts, Ace)]) = true
+val all_same_color_red = all_same_color([(Diamonds, Ace), (Diamonds, Ace)]) = true
+val all_same_color_red_and_black = all_same_color([(Clubs, Ace), (Hearts, Ace)]) = false
+val all_same_color_black_red_black = all_same_color([(Clubs, Ace), (Hearts, Ace),(Diamonds, Ace)]) = false
+val all_same_color_black_black_red = all_same_color([(Clubs, Ace), (Clubs, Ace),(Hearts, Ace)]) = false
+val all_same_color_five_one_different = all_same_color([(Clubs, Ace), (Clubs, Ace),(Hearts, Ace),(Clubs, Ace), (Clubs, Ace)]) = false
+val all_same_color_seven_equal_cards = all_same_color([(Clubs, Ace), (Clubs, Ace),(Clubs, Ace),(Clubs, Ace), (Clubs, Ace),(Clubs, Ace), (Clubs, Ace)]) = true
