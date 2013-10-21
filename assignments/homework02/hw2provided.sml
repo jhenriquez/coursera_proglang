@@ -8,7 +8,7 @@ fun same_string(s1 : string, s2 : string) =
 
 (* put your solutions for problem 1 here *)
 
-(* Problem 1 A *)
+(* Problem 01 A *)
 
 fun all_except_option (str ,[]) = NONE
 	| all_except_option (str,lst) =
@@ -25,7 +25,7 @@ fun all_except_option (str ,[]) = NONE
 		   		nav (lst,[])
 		 	end
 
-(* Problem 1 B *)
+(* Problem 01 B *)
 
 fun get_substitutions1 ([], s) = []
 		| get_substitutions1 (lst::lsts, s) =
@@ -33,7 +33,7 @@ fun get_substitutions1 ([], s) = []
 						NONE => get_substitutions1 (lsts,s)
 					|	SOME xs => xs @ get_substitutions1 (lsts,s)
 
-(* Problem 1 C *)
+(* Problem 01 C *)
 
 fun get_substitutions2 ([], s) = []
 		| get_substitutions2 (lsts, s) =
@@ -47,7 +47,7 @@ fun get_substitutions2 ([], s) = []
 				nav(lsts, [])
 			end
 
-(* Problem 1 D *)
+(* Problem 01 D *)
 
 fun similar_names ([], r : {first: string, middle: string, last: string}) = [r]
 	| similar_names (lsts, {first,middle,last} : {first:string, middle:string, last:string}) =
@@ -122,4 +122,18 @@ fun sum_cards [] = 0
 				| summarize (card::tail,acc) = summarize(tail,acc+card_value(card))
 		in
 			summarize(cards,0)
+		end
+
+(* Problem 02 F *)
+
+fun score (cards,goal) =
+		let
+			val sum = sum_cards (cards)
+			val preliminary = if sum > goal
+							  then 3 * (sum - goal)
+							  else (goal - sum)
+		in
+			if (all_same_color(cards))
+			then (preliminary div 2)
+			else preliminary
 		end

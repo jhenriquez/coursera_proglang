@@ -69,3 +69,8 @@ val sum_cards_test2 = sum_cards([(Clubs, Num 2),(Clubs, Ace)]) = 13
 val sum_cards_test3 = sum_cards([(Clubs, Num 3),(Clubs, King)]) = 13
 val sum_cards_test4 = sum_cards([(Clubs, Num 3),(Clubs, Queen)]) = 13
 val sum_cards_test5 = sum_cards([(Clubs, Num 3),(Clubs, Jack)]) = 13
+
+(* Problem 02 F *)
+
+val score_test1 = score([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
+val score_test2 = score([(Hearts, Num 2),(Hearts, Ace)],10) = 4
