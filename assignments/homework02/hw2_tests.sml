@@ -61,3 +61,11 @@ val all_same_color_black_red_black = all_same_color([(Clubs, Ace), (Hearts, Ace)
 val all_same_color_black_black_red = all_same_color([(Clubs, Ace), (Clubs, Ace),(Hearts, Ace)]) = false
 val all_same_color_five_one_different = all_same_color([(Clubs, Ace), (Clubs, Ace),(Hearts, Ace),(Clubs, Ace), (Clubs, Ace)]) = false
 val all_same_color_seven_equal_cards = all_same_color([(Clubs, Ace), (Clubs, Ace),(Clubs, Ace),(Clubs, Ace), (Clubs, Ace),(Clubs, Ace), (Clubs, Ace)]) = true
+
+(* Problem 02 E *)
+
+val sum_cards_test1 = sum_cards([(Clubs, Num 2),(Clubs, Num 2)]) = 4
+val sum_cards_test2 = sum_cards([(Clubs, Num 2),(Clubs, Ace)]) = 13
+val sum_cards_test3 = sum_cards([(Clubs, Num 3),(Clubs, King)]) = 13
+val sum_cards_test4 = sum_cards([(Clubs, Num 3),(Clubs, Queen)]) = 13
+val sum_cards_test5 = sum_cards([(Clubs, Num 3),(Clubs, Jack)]) = 13

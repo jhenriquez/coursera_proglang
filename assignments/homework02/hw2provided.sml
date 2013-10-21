@@ -104,7 +104,7 @@ fun remove_card ([],_,_) = []
 
 (* Problem 02 D *)
 
-fun all_same_color ([]) = true
+fun all_same_color [] = true
 	| all_same_color (_::[]) = true
 	| all_same_color (first::second::[]) = 
 		card_color (first) = card_color (second)
@@ -112,3 +112,14 @@ fun all_same_color ([]) = true
 		card_color (first) = card_color (second)
 		andalso card_color (first) = card_color (third)
 		andalso all_same_color (tail)
+
+(* Problem 02 E *)
+
+fun sum_cards [] = 0
+	| sum_cards cards =
+		let
+			fun summarize ([],acc) = acc
+				| summarize (card::tail,acc) = summarize(tail,acc+card_value(card))
+		in
+			summarize(cards,0)
+		end
