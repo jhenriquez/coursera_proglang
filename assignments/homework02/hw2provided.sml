@@ -54,6 +54,16 @@ fun get_substitutions2 ([], s) = []
 
 (* Problem 1 D *)
 
+fun similar_names ([] : string list list, r : {first: string, middle: string, last: string}) = [r]
+	| similar_names (lsts, {first,middle,last} : {first:string, middle:string, last:string}) =
+			let
+				val subs = get_substitutions1 (lsts,first)
+				fun substitute ([],acc) = acc
+					| substitute (name::tl, acc) = substitute (tl,acc @ [{first=name,middle=middle,last=last}])
+			in
+				substitute (subs,[{first=first,middle=middle,last=last}])
+			end		
+
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)

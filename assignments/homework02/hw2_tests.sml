@@ -11,14 +11,17 @@ val all_except_option_at_end = all_except_option ("4",["1","2","3","4"]) = SOME 
 
 val get_substitutions1_test1 = get_substitutions1([["foo"],["there"]], "foo") = []
 val get_substitutions1_test2 = get_substitutions1([["foo","bar"],["there"]], "foo") = ["bar"]
+val get_substitutions1_test3 = get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = ["Fred","Fredrick","Freddie","F"]
 
 (* Problem 01 - C *)
 
 val get_substitutions2_test1 = get_substitutions2([["foo"],["there"]], "foo") = []
 val get_substitutions2_test2 = get_substitutions2([["foo","bar"],["there"]], "foo") = ["bar"]
+val get_substitutions2_test3 = get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], "Fred") = ["Fred","Fredrick","Freddie","F"]
 
 (* Problem 01 D *)
 
-val similar_names_test1 = similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
-	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
-	     {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
+val similar_names_test1 = similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) = [{first="Fred", last="Smith", middle="W"},
+																											{first="Fredrick", last="Smith", middle="W"},
+	     																									{first="Freddie", last="Smith", middle="W"},
+	     																									{first="F", last="Smith", middle="W"}] 
