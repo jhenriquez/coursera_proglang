@@ -37,3 +37,17 @@ val similar_names_test3 = similar_names([["Julio","Polo"],["Elizabeth","Betty"],
 
 val card_color_test1 = card_color((Clubs, Num 2)) = Black
 val card_color_test2 = card_color((Hearts, Num 2)) = Red
+
+(* Problem 02 B *)
+
+val card_value_test1 = card_value((Clubs, Num 2)) = 2
+val card_value_test2 = card_value((Clubs, Ace)) = 11
+val card_value_test3 = card_value((Clubs, Jack)) = 10
+val card_value_test4 = card_value((Clubs, Queen)) = 10
+val card_value_test5 = card_value((Clubs, King)) = 10
+
+(* Problem 03 C *)
+
+val remove_card_test1 = remove_card([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
+val remove_card_test2 = remove_card([(Hearts, Ace),(Hearts, Ace)], (Hearts, Ace), IllegalMove) = [(Hearts, Ace)]
+val remove_card_test3 = remove_card([(Hearts, Ace),(Hearts, Ace), (Clubs,Num 2)], (Hearts, Ace), IllegalMove) = [(Hearts, Ace),(Clubs,Num 2)]

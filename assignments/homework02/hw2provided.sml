@@ -10,25 +10,18 @@ fun same_string(s1 : string, s2 : string) =
 
 (* Problem 1 A *)
 
-(* compares a list of strings *)
-fun compare ([],[]) = true
-	| compare ((x::xs),(y::ys)) = same_string(x,y) andalso compare(xs,ys)
-	| compare (_,_) = false
-
-fun all_except_option (str : string ,[]) = NONE
-	| all_except_option (str : string,lst) = 
-		let
-		   fun nav ([],acc) =
-			  if compare(acc,lst)
-			  then NONE
-			  else SOME acc
-		     | nav ((h::t),acc) =
-              if same_string(str,h)
-			  then nav (t,acc)
-			  else nav (t,acc @ [h])
- 		 in
-		   nav (lst,[])
-		 end
+fun all_except_option (str ,[]) = NONE
+	| all_except_option (str,lst) = let fun nav ([],acc) =
+			  								if acc = lst
+			  								then NONE
+			  								else SOME acc
+		     							| nav ((h::t),acc) =
+              								if same_string(str,h)
+								  			then nav (t,acc)
+			  								else nav (t,acc @ [h])
+ 		 							in
+		   								nav (lst,[])
+		 							end
 
 (* Problem 1 B *)
 
@@ -85,3 +78,24 @@ fun card_color (Clubs,_) = Black
 	| card_color (Hearts,_) = Red
 
 (* Problem 02 B *)
+
+fun card_value (_,Num va) = va
+	| card_value (_, Ace) = 11
+	| card_value (_,_) = 10
+
+(* Problem 02 C *)
+
+fun remove_card ([] : card list,_,_) = []
+	| remove_card (cs,c : card,ex) = 
+		let
+			fun remover ([],acc) =
+				if cs = acc
+				then raise ex
+				else acc
+			| remover (hd::tl,acc) =
+				if (hd = c)
+				then tl @ acc
+				else remover (tl, (acc @ [hd]))
+		in
+			remover (cs,[])
+		end
