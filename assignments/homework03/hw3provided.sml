@@ -46,11 +46,5 @@ character. Use List.filter, Char.isUpper, and String.sub to make a 1-2 line solu
 
 *)
 
-fun filter (_,[]) = []
-	| filter (f,x::xs) = 
-		if f(x)
-		then x::filter(f,xs)
-		else filter(f,xs)
-
-val f = (fn x => Char.isUpper(String.sub(x,0)));
-(* fun only_capitals xs = List.filter (f xs) *)
+fun only_capitals xs =
+		List.filter (fn x => Char.isUpper(String.sub(x,0))) xs
