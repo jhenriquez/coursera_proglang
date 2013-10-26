@@ -48,3 +48,23 @@ character. Use List.filter, Char.isUpper, and String.sub to make a 1-2 line solu
 
 fun only_capitals xs =
 		List.filter (fn x => Char.isUpper(String.sub(x,0))) xs
+
+(*
+
+Problem 02 - longest_string1 
+
+
+*)
+
+fun longest_string1 lst = 
+		foldl (fn (x,y) => if String.size x > String.size y then x else y) "" lst
+
+(*
+
+Problem 03 - longest_string2 
+
+
+*)
+
+fun longest_string2 lst = 
+		foldr (fn (x,y) => if String.size x > String.size y then x else y) "" lst
