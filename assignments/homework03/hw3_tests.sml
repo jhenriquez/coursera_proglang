@@ -10,6 +10,7 @@ val longest_string1_A_bc_D_returns_bc = longest_string1 ["A","bc","D"] = "bc"
 val longest_string1_A_bc_D_ef_returns_bc = longest_string1 ["A","bc","D", "ef"] = "bc"
 val longest_string1_tide_returns_left = longest_string1 ["A","bc","D", "pablo", "batid"] = "pablo"
 val longest_string1_empty_list = longest_string1 [] = ""
+val test4b= longest_string2 ["A","B","C"] = "C"
 
 (* Problem 03 - longest_string2 *)
 
