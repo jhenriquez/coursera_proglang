@@ -23,14 +23,20 @@ val test4b_longest_string2 = longest_string2 ["A","B","C"] = "C"
 (* Problem 04 - longest_string3 *)
 
 val longest_string3_A_bc_D_returns_bc = longest_string3 ["A","bc","D"] = "bc"
-val longest_string3_A_bc_D_ef_returns_bc = longest_string3 ["A","bc","D", "ef"] (*= "bc"*)
+val longest_string3_A_bc_D_ef_returns_bc = longest_string3 ["A","bc","D", "ef"] = "bc"
 val longest_string3_empty_list = longest_string3 [] = ""
-val test4b_longest_string3 = longest_string3 ["A","B","C"] = "A"
+val longest_string3_returns_first_when_single_char = longest_string3 ["A","B","C"] = "A"
 
 (* Problem 04 - longest_string4 *)
 
 val longest_string4_A_bc_D_returns_bc = longest_string4 ["A","bc","D"] = "bc"
-val longest_string4_A_bc_D_ef_returns_bc = longest_string4 ["A","bc","D", "ef"] = "ef"
+val longest_string4_A_bc_D_ef_returns_ef = longest_string4 ["A","bc","D", "ef"] = "ef"
 val longest_string4_tide_returns_right = longest_string4 ["A","bc","D", "pablo", "batid"] = "batid"
 val longest_string4_empty_list = longest_string4 [] = ""
-val test4b_longest_string4 = longest_string4 ["A","B","C"] = "C"
+val longest_string3_returns_last_when_single_char = longest_string4 ["A","B","C"] = "C"
+
+(* Problem 05 - longest_capitalized *)
+
+val longest_capitalized_provided = longest_capitalized ["A","bc","C"] = "A";
+val longest_capitalized_avion_cueron = longest_capitalized ["Avion","bc","Cueron"] = "Cueron";
+val longest_capitalized_aviona_cueron = longest_capitalized ["Aviona","bc","Cueron"] = "Aviona";

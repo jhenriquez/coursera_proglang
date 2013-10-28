@@ -78,9 +78,17 @@ Problem 04 - longest_string_helper, longest_string3, longest_string4
 *)
 
 fun longest_string_helper f =
-		foldl (fn (x,y) => if f(String.size x, String.size y) then x else y) ""
+		foldr (fn (x,y) => if f(String.size x, String.size y) then x else y) ""
 
-val longest_string3 = longest_string_helper (fn (x,y) => x > y) 
-val longest_string4 = longest_string_helper (fn (x,y) => x >= y)
+val longest_string3 = longest_string_helper (fn (x,y) => x >= y) 
+val longest_string4 = longest_string_helper (fn (x,y) => x > y)
+
+(*
+
+Problem 05 - longest_capitalized
 
 
+*)
+
+
+val longest_capitalized = (longest_string1 o only_capitals)
