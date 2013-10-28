@@ -10,7 +10,7 @@ val longest_string1_A_bc_D_returns_bc = longest_string1 ["A","bc","D"] = "bc"
 val longest_string1_A_bc_D_ef_returns_bc = longest_string1 ["A","bc","D", "ef"] = "bc"
 val longest_string1_tide_returns_left = longest_string1 ["A","bc","D", "pablo", "batid"] = "pablo"
 val longest_string1_empty_list = longest_string1 [] = ""
-val test4b= longest_string2 ["A","B","C"] = "C"
+val test4b_longest_string1 = longest_string1 ["A","B","C"] = "A"
 
 (* Problem 03 - longest_string2 *)
 
@@ -18,3 +18,19 @@ val longest_string2_A_bc_D_returns_bc = longest_string2 ["A","bc","D"] = "bc"
 val longest_string2_A_bc_D_ef_returns_ef = longest_string2 ["A","bc","D", "ef"] = "ef"
 val longest_string2_tide_returns_left = longest_string2 ["A","bc","D", "pablo", "batid"] = "batid"
 val longest_string2_empty_list = longest_string2 [] = ""
+val test4b_longest_string2 = longest_string2 ["A","B","C"] = "C"
+
+(* Problem 04 - longest_string3 *)
+
+val longest_string3_A_bc_D_returns_bc = longest_string3 ["A","bc","D"] = "bc"
+val longest_string3_A_bc_D_ef_returns_bc = longest_string3 ["A","bc","D", "ef"] (*= "bc"*)
+val longest_string3_empty_list = longest_string3 [] = ""
+val test4b_longest_string3 = longest_string3 ["A","B","C"] = "A"
+
+(* Problem 04 - longest_string4 *)
+
+val longest_string4_A_bc_D_returns_bc = longest_string4 ["A","bc","D"] = "bc"
+val longest_string4_A_bc_D_ef_returns_bc = longest_string4 ["A","bc","D", "ef"] = "ef"
+val longest_string4_tide_returns_right = longest_string4 ["A","bc","D", "pablo", "batid"] = "batid"
+val longest_string4_empty_list = longest_string4 [] = ""
+val test4b_longest_string4 = longest_string4 ["A","B","C"] = "C"
