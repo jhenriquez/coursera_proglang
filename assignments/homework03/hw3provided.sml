@@ -92,3 +92,13 @@ Problem 05 - longest_capitalized
 
 
 val longest_capitalized = (longest_string1 o only_capitals)
+
+
+(*
+
+Problem 06 - rev_string
+
+
+*)
+
+fun rev_string s = (String.implode o rev o String.explode) s

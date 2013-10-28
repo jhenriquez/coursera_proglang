@@ -38,5 +38,9 @@ val longest_string3_returns_last_when_single_char = longest_string4 ["A","B","C"
 (* Problem 05 - longest_capitalized *)
 
 val longest_capitalized_provided = longest_capitalized ["A","bc","C"] = "A";
-val longest_capitalized_avion_cueron = longest_capitalized ["Avion","bc","Cueron"] = "Cueron";
-val longest_capitalized_aviona_cueron = longest_capitalized ["Aviona","bc","Cueron"] = "Aviona";
+val longest_capitalized_avion_cueron = longest_capitalized ["Avion","bc","Cueron"] = "Cueron"
+val longest_capitalized_aviona_cueron = longest_capitalized ["Aviona","bc","Cueron"] = "Aviona"
+
+(* Problem 06 - rev_string *)
+
+val rev_string_provided  = rev_string "abc" = "cba"
