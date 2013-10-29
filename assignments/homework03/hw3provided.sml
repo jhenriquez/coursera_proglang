@@ -87,6 +87,10 @@ val longest_string4 = longest_string_helper (fn (x,y) => x > y)
 
 Problem 05 - longest_capitalized
 
+Write a function longest_capitalized that takes a string list and returns the longest string in
+the list that begins with an uppercase letter, or "" if there are no such strings. Assume all strings
+have at least 1 character. Use a val-binding and the ML library's o operator for composing functions.
+Resolve ties like in problem 2.
 
 *)
 
@@ -98,6 +102,9 @@ val longest_capitalized = (longest_string1 o only_capitals)
 
 Problem 06 - rev_string
 
+Write a function rev_string that takes a string and returns the string that is the same characters in
+reverse order. Use ML's o operator, the library function rev for reversing lists, and two library functions
+in the String module. (Browse the module documentation to find the most useful functions.)
 
 *)
 
@@ -107,6 +114,11 @@ fun rev_string s = (String.implode o rev o String.explode) s
 
 Problem 07 - first_answer
 
+Write a function first_answer of type ('a -> 'b option) -> ('a list -> 'b) (notice the 2 arguments are curried).
+The first argument should be applied to elements of the second argument in order until the first time it returns
+SOME v for some v and then v is the result of the call to first_answer.
+
+If the first argument returns NONE for all list elements, then first_answer should raise the exception NoAnswer.
 
 *)
 
@@ -120,6 +132,13 @@ fun first_answer _ [] = raise NoAnswer
 
 Problem 08 - all_answers
 
+Write a function all_answers of type ('a -> 'b list option) -> 'a list -> 'b list option
+(notice the 2 arguments are curried). The first argument should be applied to elements of the second
+argument. If it returns NONE for any element, then the result for all_answers is NONE. Else the
+calls to the first argument will have produced SOME lst1, SOME lst2, ... SOME lstn and the result of
+all_answers is SOME lst where lst is lst1, lst2, ..., lstn appended together (order doesn't matter).
+Hints: The sample solution is 8 lines. It uses a helper function with an accumulator and uses @. Note
+all_answers f [] should evaluate to SOME [].
 
 *)
 
@@ -129,6 +148,5 @@ fun all_answers f [] = SOME []
 			fun select ([],acc) = SOME acc
 				| select (item::items',acc) =
 					case (f item) of NONE => NONE | SOME value => select (items', value @ acc)
-		in
-			select (elements, [])
-		end
+		in select (elements, []) end
+
