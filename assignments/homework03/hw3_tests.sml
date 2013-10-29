@@ -51,3 +51,9 @@ val rev_string_with_multiple_spaces = rev_string "batman forever" = "reverof nam
 
 val first_answer_provided = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4
 val first_answer_exception = (first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3];false) handle _ => true = true
+
+(* Problem 08 - all_answers *)
+
+val all_answers_provided = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
+val all_answers_take_range = all_answers (fn x => if x > 1 andalso x < 8 then SOME [x] else NONE) [2,3,4] = SOME [2,3,4]
+val all_answers_provided_hint = all_answers (fn x => if x = 1 then SOME [x] else NONE) [] = SOME []

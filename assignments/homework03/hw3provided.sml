@@ -115,3 +115,20 @@ fun first_answer _ [] = raise NoAnswer
 			case (List.filter (fn e => case (f e) of NONE => false | SOME _ => true) elements) of
 					[] => raise NoAnswer
 					| e::_ => e
+
+(*
+
+Problem 08 - all_answers
+
+
+*)
+
+fun all_answers f [] = SOME []
+	| all_answers f elements =
+		let
+			fun select ([],acc) = SOME acc
+				| select (item::items',acc) =
+					case (f item) of NONE => NONE | SOME value => select (items', value @ acc)
+		in
+			select (elements, [])
+		end
