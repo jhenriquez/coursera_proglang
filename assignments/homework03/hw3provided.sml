@@ -80,7 +80,7 @@ Problem 04 - longest_string_helper, longest_string3, longest_string4
 fun longest_string_helper f =
 		foldr (fn (x,y) => if f(String.size x, String.size y) then x else y) ""
 
-val longest_string3 = longest_string_helper (fn (x,y) => x >= y) 
+val longest_string3 = longest_string_helper (fn (x,y) => x >= y)
 val longest_string4 = longest_string_helper (fn (x,y) => x > y)
 
 (*
@@ -102,3 +102,16 @@ Problem 06 - rev_string
 *)
 
 fun rev_string s = (String.implode o rev o String.explode) s
+
+(*
+
+Problem 07 - first_answer
+
+
+*)
+
+fun first_answer _ [] = raise NoAnswer
+	|	first_answer f elements =
+			case (List.filter (fn e => case (f e) of NONE => false | SOME _ => true) elements) of
+					[] => raise NoAnswer
+					| e::_ => e

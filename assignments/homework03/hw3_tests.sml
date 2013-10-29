@@ -43,4 +43,11 @@ val longest_capitalized_aviona_cueron = longest_capitalized ["Aviona","bc","Cuer
 
 (* Problem 06 - rev_string *)
 
-val rev_string_provided  = rev_string "abc" = "cba"
+val rev_string_provided = rev_string "abc" = "cba"
+val rev_string_with_space = rev_string "batman forever" = "reverof namtab"
+val rev_string_with_multiple_spaces = rev_string "batman forever" = "reverof namtab"
+
+(* Problem 07 - first_answer *)
+
+val first_answer_provided = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4
+val first_answer_exception = (first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3];false) handle _ => true = true
