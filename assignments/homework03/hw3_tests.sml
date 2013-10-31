@@ -57,3 +57,9 @@ val first_answer_exception = (first_answer (fn x => if x > 3 then SOME x else NO
 val all_answers_provided = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
 val all_answers_take_range = all_answers (fn x => if x > 1 andalso x < 8 then SOME [x] else NONE) [2,3,4] = SOME [2,3,4]
 val all_answers_provided_hint = all_answers (fn x => if x = 1 then SOME [x] else NONE) [] = SOME []
+
+(* Problem 09 A - *)
+
+val count_wildcards_Passed_Wildcard_instance = count_wildcards Wildcard = 1
+val count_wildcards_TupleP_WithThree_Wildcards = count_wildcards(TupleP([Wildcard,Wildcard,Wildcard])) = 3
+val count_wildcards_pattern_cocktail = count_wildcards(ConstructorP ("pat",TupleP([Wildcard,Variable("Wildcard"),ConstP(1),Wildcard]))) = 2

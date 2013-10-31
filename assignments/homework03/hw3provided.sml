@@ -1,5 +1,4 @@
 (* Coursera Programming Languages, Homework 3, Provided Code *)
-
 exception NoAnswer
 
 datatype pattern = Wildcard
@@ -150,3 +149,10 @@ fun all_answers f [] = SOME []
 					case (f item) of NONE => NONE | SOME value => select (items', value @ acc)
 		in select (elements, []) end
 
+
+fun count_wildcards p =
+		case p of
+			Wildcard => g (fn _ => 1) (fn _=> 0) p
+			| TupleP _ => g (fn _ => 1) (fn _=> 0) p
+			| ConstructorP (_,p) => g (fn _ => 1) (fn _=> 0) p
+			| _ => 0
