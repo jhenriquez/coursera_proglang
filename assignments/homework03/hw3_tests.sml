@@ -55,7 +55,7 @@ val first_answer_exception = (first_answer (fn x => if x > 3 then SOME x else NO
 (* Problem 08 - all_answers *)
 
 val all_answers_provided = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
-val all_answers_take_range = all_answers (fn x => if x > 1 andalso x < 8 then SOME [x] else NONE) [2,3,4] = SOME [2,3,4]
+val all_answers_take_range = all_answers (fn x => if x > 1 andalso x < 5 then SOME [x] else NONE) [2,3,4] = SOME [2,3,4]
 val all_answers_provided_hint = all_answers (fn x => if x = 1 then SOME [x] else NONE) [] = SOME []
 
 (* Problem 09 A - *)
@@ -63,3 +63,10 @@ val all_answers_provided_hint = all_answers (fn x => if x = 1 then SOME [x] else
 val count_wildcards_Passed_Wildcard_instance = count_wildcards Wildcard = 1
 val count_wildcards_TupleP_WithThree_Wildcards = count_wildcards(TupleP([Wildcard,Wildcard,Wildcard])) = 3
 val count_wildcards_pattern_cocktail = count_wildcards(ConstructorP ("pat",TupleP([Wildcard,Variable("Wildcard"),ConstP(1),Wildcard]))) = 2
+
+(* Problem 09 B - *)
+
+val count_wild_and_variable_lengths_With_Variable_Char = count_wild_and_variable_lengths (Variable("a")) = 1
+val count_wild_and_variable_lengths_With_Variable_FiveChars = count_wild_and_variable_lengths (Variable("Pablo")) = 5
+val count_wild_and_variable_lengths_cocktail_a = count_wild_and_variable_lengths (TupleP([Wildcard,Variable("a")])) = 2
+val count_wild_and_variable_lengths_cocktail_b = count_wild_and_variable_lengths (TupleP([Wildcard,Variable("Pablo")])) = 6
