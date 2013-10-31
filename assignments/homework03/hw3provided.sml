@@ -146,7 +146,7 @@ fun all_answers f [] = SOME []
 		let
 			fun select ([],acc) = SOME acc
 				| select (item::items',acc) =
-					case (f item) of NONE => NONE | SOME value => select (items', value @ acc)
+					case (f item) of NONE => NONE | SOME value => select (items', acc @ value)
 		in select (elements, []) end
 
 
