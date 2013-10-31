@@ -70,3 +70,13 @@ val count_wild_and_variable_lengths_With_Variable_Char = count_wild_and_variable
 val count_wild_and_variable_lengths_With_Variable_FiveChars = count_wild_and_variable_lengths (Variable("Pablo")) = 5
 val count_wild_and_variable_lengths_cocktail_a = count_wild_and_variable_lengths (TupleP([Wildcard,Variable("a")])) = 2
 val count_wild_and_variable_lengths_cocktail_b = count_wild_and_variable_lengths (TupleP([Wildcard,Variable("Pablo")])) = 6
+
+(* Problem 09 C - count_some_var *)
+
+val count_some_var_provided = count_some_var ("x", Variable("x")) = 1;
+
+val count_some_var_coctil_a =
+			count_some_var ("Pablo", ConstructorP("pat",TupleP([Wildcard,Variable("Wildcard"),ConstP(1),Wildcard]))) = 0
+
+val count_some_var_coctil_b =
+			count_some_var ("Pablo", ConstructorP("pat",TupleP([Wildcard,Variable("Pablo"),ConstP(1),Wildcard]))) = 1

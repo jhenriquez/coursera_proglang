@@ -175,3 +175,17 @@ fun count_wild_and_variable_lengths p =
 			| Variable x => g (fn _ => 0) (fn x => String.size x) p
 			| TupleP _ => g (fn _ => 1) (fn x => String.size x) p
 			| ConstructorP (_,p) => g (fn x => 1) (fn x => String.size x) p
+
+(*
+
+Problem 09 C - count_some_var
+
+*)
+
+fun count_some_var (var,p) =
+		case p of
+			Wildcard => g (fn _ => 0) (fn _ => 0) p
+			| Variable x => g (fn _ => 0) (fn x => if var = x then 1 else 0) p
+			| TupleP _ => g (fn _ => 0) (fn x => if var = x then 1 else 0) p
+			| ConstructorP (_,p) => g (fn x => 0) (fn x => if var = x then 1 else 0) p
+
