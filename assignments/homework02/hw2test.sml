@@ -38,4 +38,9 @@ val test13 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
                false) 
               handle IllegalMove => true)
              
+val test14 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
+                         [Discard(Hearts,Jack)],
+                         42);
+               false) 
+              handle IllegalMove => true)
              

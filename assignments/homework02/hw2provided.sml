@@ -87,7 +87,7 @@ fun card_value (_,Num va) = va
 
 (* Problem 02 C *)
 
-fun remove_card ([],_,_) = []
+fun remove_card ([],_,ex) = raise ex
 	| remove_card (cs,c,ex) = 
 		let
 			fun remover ([],acc) =
@@ -137,3 +137,19 @@ fun score (cards,goal) =
 			then (preliminary div 2)
 			else preliminary
 		end
+
+(* Problem 02 G *)
+
+fun officiate (cards, moves, goal) =
+	let
+		fun play ([],  _, hand) = score(hand, goal)
+			| play (_, [], hand) = score (hand, goal)
+			| play (move::remaining_moves, next_card::deck, hand) =
+				if sum_cards hand > goal
+				then score (hand, goal)
+				else case move of
+					Draw => play (remaining_moves, deck, hand @ [next_card])
+				|	Discard card => play (remaining_moves, [next_card] @ deck, remove_card (hand, card, IllegalMove))
+	in
+		play (moves, cards, [])
+	end
