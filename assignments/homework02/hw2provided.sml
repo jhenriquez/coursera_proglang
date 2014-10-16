@@ -153,3 +153,28 @@ fun officiate (cards, moves, goal) =
 	in
 		play (moves, cards, [])
 	end
+
+(* Problem 03 A *)
+
+(*
+Write score_challenge and officiate_challenge to be like their non-challenge counterparts except
+each ace can have a value of 1 or 11 and score_challenge should always return the least (i.e., best)
+possible score. (Note the game-ends-if-sum-exceeds-goal rule should apply only if there is no sum less
+than or equal to the goal.) Hint: This is easier than you might think
+*)
+
+(* Problem 03 B *)
+
+(*
+Write careful_player, which takes a card-list and a goal and returns a move-list such that calling
+officiate with the card-list, the goal, and the move-list has this behavior:
+
+	• The value of the held cards never exceeds the goal.
+	• A card is drawn whenever the goal is more than 10 greater than the value of the held cards. As a
+	detail, you should (attempt to) draw, even if no cards remain in the card-list.
+	• If a score of 0 is reached, there must be no more moves.
+	• If it is possible to discard one card, then draw one card to produce a score of 0, then this must be
+	done. Note careful_player will have to look ahead to the next card, which in many card games
+	is considered “cheating.” Also note that the previous requirement takes precedence: There must
+	be no more moves after a score of 0 is reached even if there is another way to get back to 0.
+*)
