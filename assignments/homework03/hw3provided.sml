@@ -33,7 +33,7 @@ datatype typ = Anything
 	     | TupleT of typ list
 	     | Datatype of string
 
-(**** you can put all your code here ****)
+(**** you csan put all your code here ****)
 
 (*
 
@@ -189,3 +189,21 @@ fun count_some_var (var,p) =
 			| TupleP _ => g (fn _ => 0) (fn x => if var = x then 1 else 0) p
 			| ConstructorP (_,p) => g (fn x => 0) (fn x => if var = x then 1 else 0) p
 
+(*
+fun check_pat p =
+		let
+			fun collect_vars p =	
+				case  p of
+					Variable x => [x]
+					| TupleP ps => List.foldl (fn (p,acc) => (collect_vars p)@acc) [] ps
+					| ConstructorP (_,p) => collect_vars p
+					| _ => []
+
+			fun has_repeats [] = false
+				| has_repeats h::[] = false
+				| has_repeats l = List.foldl (fn x => List.exists (fn) ) l
+
+		in
+			not (has_repeats o collect_vars p)
+		end
+*)
